@@ -9,8 +9,10 @@ public class MainCLI {
 
     public MainCLI() {
         contacts = new Contacts(getInitialList());
+        boolean correct = true;
         while (true) {
-            displayOptions(true);
+            displayOptions(correct);
+            correct = true;
             switch (scanner.nextInt()) {
                 case 1 :
                     contacts.display();
@@ -21,7 +23,7 @@ public class MainCLI {
                 case 0 :
                     return;
                 default:
-                    displayOptions(false);
+                    correct = false;
                     break;
             }
         }
